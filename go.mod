@@ -3,6 +3,9 @@ module github.com/0xPolygon/minimal
 go 1.14
 
 require (
+	github.com/NebulousLabs/errors v0.0.0-20181203160057-9f787ce8f69e // indirect
+	github.com/NebulousLabs/fastrand v0.0.0-20181203155948-6fb6489aac4e // indirect
+	github.com/anthdm/hbbft v0.0.0-20190702061856-0826ffdcf567
 	github.com/btcsuite/btcd v0.21.0-beta
 	github.com/ethereum/go-ethereum v1.9.15
 	github.com/golang/protobuf v1.4.3

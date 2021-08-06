@@ -7,6 +7,7 @@ import (
 	"github.com/0xPolygon/minimal/command/genesis"
 	"github.com/0xPolygon/minimal/command/helper"
 	"github.com/0xPolygon/minimal/command/ibft"
+	"github.com/0xPolygon/minimal/command/mando"
 	"github.com/0xPolygon/minimal/command/monitor"
 	"github.com/0xPolygon/minimal/command/peers"
 	"github.com/0xPolygon/minimal/command/server"
@@ -29,6 +30,7 @@ func Commands() map[string]cli.CommandFactory {
 	}
 
 	// Grab a reference to the commands
+	mandoCmd := mando.Mando{Meta: meta}
 	serverCmd := server.ServerCommand{UI: ui}
 	devCmd := dev.DevCommand{UI: ui}
 	genesisCmd := genesis.GenesisCommand{UI: ui}
@@ -64,6 +66,11 @@ func Commands() map[string]cli.CommandFactory {
 		},
 		genesisCmd.GetBaseCommand(): func() (cli.Command, error) {
 			return &genesisCmd, nil
+		},
+
+		// MI MANDO //
+		mandoCmd.GetBaseCommand(): func() (cli.Command, error) {
+			return &mandoCmd, nil
 		},
 
 		// PEER COMMANDS //
